@@ -1,4 +1,3 @@
-from tracemalloc import start
 from Node import Head_Node, Internal_Node
 from headList import Head_List
 

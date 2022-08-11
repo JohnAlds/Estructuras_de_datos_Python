@@ -145,3 +145,81 @@ class Internal_Node:
 
         self.__right = right
 
+class Node_Tree:
+
+    def __init__(self, data):
+        
+        self.__data = data
+        self.__left = None
+        self.__right = None
+
+    # Getters
+    def getData(self):
+        return self.__data
+    
+    def getLeft(self):
+        return self.__left
+    
+    def getRight(self):
+        return self.__right
+
+    #Setters
+    def setData(self, data):
+        self.__data = data
+    
+    def setLeft(self, left):
+        self.__left = left
+    
+    def setRight(self, right):
+        self.__right = right
+
+class Node_Stack:
+
+    def __init__(self, data):
+
+        self.__data = data
+        self.__up = None
+    
+    #Getters
+    def getData(self):
+
+        return self.__data
+    
+    def getUp(self):
+
+        return self.__up
+
+    #Setters
+    def setData(self, data):
+
+        self.__data = data
+    
+    def setUp(self, up):
+
+        self.__up = up
+
+class Node_Tail:
+
+    def __init__(self, data):
+
+        self.__data = data
+        self.__next = None
+    
+    #Getters
+    def getData(self):
+
+        return self.__data
+    
+    def getNext(self):
+
+        return self.__next
+
+    #Setters
+    def setData(self, data):
+
+        self.__data = data
+    
+    def setNext(self, next):
+
+        self.__next = next
+

@@ -1,65 +1,63 @@
-from Node import Node
+from re import U
+from Node import Node_Stack
 
 class Stack:
 
     def __init__(self):
 
-        self.first : Node = None
-        self.top : Node = None
+        self.first : Node_Stack = None
+        self.top : Node_Stack = None
         self.size = 0
 
     def push(self, data):
 
         self.size += 1
+        newNode = Node_Stack(data)
 
-        if self.first is None:
+        if self.first is None: 
 
-            newNode = Node(data)
             self.first = self.top = newNode
         else:
 
-            newNode = Node(data)
-            
-            self.top.setNext(newNode)
-            newNode.setPrevious(self.top)
+            self.top.setUp(newNode)
             self.top = newNode
 
     def pop(self):
     
         if self.first == None:
 
-            print('Lista vacía, no hay nada que sacar')
+            print('Empty stack.')
         else:
 
-            topNode = Node(self.top.getDato())
+            dataTop = self.top.getData()
 
             if self.first == self.top:
 
                 self.first = self.top = None
                 self.size -= 1
 
-                return topNode
+                return dataTop
             else:
 
                 current = self.first
                 self.size -= 1
 
-                while current.getNext() != self.top:
+                while current.getUp() != self.top:
 
-                    current = current.getNext()
+                    current = current.getUp()
                 
                 self.top = current
-                self.top.setNext(None)
+                self.top.setUp(None)
 
-                return topNode
+                return dataTop
 
     def showStack(self):
 
-        top = self.top
+        top = self.first
 
         while top is not None:
 
-            print(top.getDato())
+            print(top.getData())
 
-            top = top.getPrevious()
+            top = top.getUp()
 

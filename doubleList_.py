@@ -12,31 +12,31 @@ class Double_List:
     def insert(self, dato):
 
         self.size += 1
-        nuevo = Node(dato)
+        newNode = Node(dato)
 
         if self.first == None:
 
-            self.first = self.last = nuevo
+            self.first = self.last = newNode
         else:
 
-            nuevo.setPrevious(self.last)
-            self.last.setNext(nuevo)
-            self.last = nuevo
+            newNode.setPrevious(self.last)
+            self.last.setNext(newNode)
+            self.last = newNode
 
     #insert node at start
     def insertStart(self, dato):
 
         self.size += 1
-        nuevo = Node(dato)
+        newNode = Node(dato)
 
         if self.first == None:
 
-            self.first = self.last = nuevo
+            self.first = self.last = newNode
         else:
 
-            self.first.setPrevious(nuevo)
-            nuevo.setPrevious(self.first)
-            self.first = nuevo
+            self.first.setPrevious(newNode)
+            newNode.setPrevious(self.first)
+            self.first = newNode
 
     #show elements
     def showElements(self):
@@ -52,12 +52,12 @@ class Double_List:
     #insert in alphabetical order
     def insertAlphabetical(self, dato):
 
-        nuevo = Node(dato)
+        newNode = Node(dato)
         self.size += 1
         
         if self.first == None:
 
-            self.first = self.last = nuevo
+            self.first = self.last = newNode
         
         else:
 
@@ -65,36 +65,36 @@ class Double_List:
 
             while current != None:
 
-                if nuevo.getDato() < current.getDato():
+                if newNode.getDato() < current.getDato():
 
                     if current == self.first:
 
-                        nuevo.setNext(self.first)
-                        self.first.setPrevious(nuevo)
-                        self.first = nuevo
+                        newNode.setNext(self.first)
+                        self.first.setPrevious(newNode)
+                        self.first = newNode
                         break
                     else:
                         
-                        nuevo.setNext(current)
-                        nuevo.setPrevious(current.getPrevious())
-                        current.getPrevious().setNext(nuevo)
-                        current.setPrevious(nuevo)
+                        newNode.setNext(current)
+                        newNode.setPrevious(current.getPrevious())
+                        current.getPrevious().setNext(newNode)
+                        current.setPrevious(newNode)
                         
                         break
                 
-                elif nuevo.getDato() > current.getDato():
+                elif newNode.getDato() > current.getDato():
 
                     if current == self.last:
 
-                        nuevo.setPrevious(current)
-                        current.setNext(nuevo)
-                        self.last = nuevo
+                        newNode.setPrevious(current)
+                        current.setNext(newNode)
+                        self.last = newNode
                         break
                     else:
 
                         current = current.getNext()
 
-                elif nuevo.getDato() == current.getDato():
+                elif newNode.getDato() == current.getDato():
 
                     current = current.getNext()
     
@@ -103,7 +103,7 @@ class Double_List:
 
         if self.first is None:
 
-            print('Lista vacía.')
+            print('Empty List.')
         else:
 
             current  =  self.first
@@ -118,28 +118,28 @@ class Double_List:
 
             if current is None:
 
-                print(beforeDato + ' no se encuentra en la lista.')
+                print(str(beforeDato) + ' not found in the list.')
             else:
 
-                nuevo = Node(insertDato)
-                nuevo.setNext(current)
-                nuevo.setPrevious(current.getPrevious())
+                newNode = Node(insertDato)
+                newNode.setNext(current)
+                newNode.setPrevious(current.getPrevious())
 
                 if current.getPrevious() is not None:
 
-                    current.getPrevious().setNext(nuevo)
+                    current.getPrevious().setNext(newNode)
                 else:
     
-                    self.first = nuevo
+                    self.first = newNode
                 
-                current.setPrevious(nuevo)
+                current.setPrevious(newNode)
         
     #insert later
     def insertLater(self, insertDato, laterDato):
 
         if self.first is None:
 
-            print('Lista vacía')
+            print('Empty List.')
 
         else:
 
@@ -155,25 +155,25 @@ class Double_List:
             
             if current is None:
 
-                print( laterDato + ' no se encuentra en la lista.')
+                print( str(laterDato) + ' not found in the list.')
             else:
 
-                nuevo = Node(insertDato)
-                nuevo.setPrevious(current)
-                nuevo.setNext(current.getNext())
+                newNode = Node(insertDato)
+                newNode.setPrevious(current)
+                newNode.setNext(current.getNext())
 
                 if current.getNext() is not None:
 
-                    current.getNext().setPrevious(nuevo)
+                    current.getNext().setPrevious(newNode)
                 
-                current.setNext(nuevo)
+                current.setNext(newNode)
 
     #pop
     def pop(self):
 
         if self.first == None:
 
-            print('Lista vacía, no hay nada que sacar')
+            print('Empty List')
         else:
 
             top = Node(self.last.getDato())

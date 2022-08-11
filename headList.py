@@ -75,3 +75,7 @@ class Head_List:
             current = current.getNext()
         
         return None
+
+    def getFirst(self):
+
+        return self.first

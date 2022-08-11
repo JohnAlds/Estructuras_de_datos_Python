@@ -1,7 +1,4 @@
-
-
-from Node import Node
-
+from Node import Node_Tail
 
 class Tail:
 
@@ -14,25 +11,25 @@ class Tail:
     def queue(self, data):
 
         self.size += 1
-        nuevo = Node(data)
+        newNode = Node_Tail(data)
 
         if self.first is None:
 
-            self.first = self.last = nuevo
+            self.first = self.last = newNode
         else:
 
-            nuevo.setPrevious(self.last)
-            self.last.setNext(nuevo)
-            self.last = nuevo
+            self.last.setNext(newNode)
+            self.last = newNode
 
     def dequeue(self):
 
         if self.first is None:
 
-            print('Lista vacía.')
+            print('Empty Tail')
+            return None
         else:
 
-            startNode = Node(self.first.getDato())
+            startNode = self.first.getData()
 
             if self.first is self.last:
 
@@ -53,7 +50,7 @@ class Tail:
 
         while current is not None:
 
-            print(current.getDato())
+            print(current.getData())
 
             current = current.getNext()
             
